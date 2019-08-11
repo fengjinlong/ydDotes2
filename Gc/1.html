@@ -1,0 +1,71 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-08-11 22:56:34
+ * @LastEditTime: 2019-08-11 23:24:57
+ * @LastEditors: Please set LastEditors
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GC是否被回收</title>
+</head>
+
+<body>
+    <script>
+        // function Yideng(name){
+        //     this.name = name;
+        // }
+        // let student1 = new Yideng();
+        // let student2 = new Yideng();
+        // student1 = null;
+        // student2 = null;s
+        // let YidengFactory = function(name){
+        //     let student1 = new Yideng(name);
+        //     return function(){
+        //         console.log(student1);
+        //         student1 = null;
+        //         Yideng = null;
+        //     }
+        // }
+        // let p1 = YidengFactory("老袁");
+        // p1();
+        // p1 = null;
+        /**
+        * 1.eval 不对LexicalEnvironment进行任何的解绑
+        * 2.new Function(" ") ->scope LexicalEnvironment
+        * 3.with遇到 放弃掉全部变量的回收
+        * 4.try..catch(ex) 不会回收ex ex -> LexicalEnvironment
+        */
+        // function test() {
+        //     var a = "yideng";
+        //     return function () {
+        //         debugger
+        //         eval("");
+        //     }
+        // }
+        // test()();
+        // var test = "outter";
+
+        // function init() {
+        //     var test = "inner";
+        //     var fn = new Function("console.log(test)");
+        //     fn();
+        // }
+        // init();
+
+        // var outter = {
+        //     age:20
+        // };
+        // with(outter){
+        //     name = "京程一灯";
+        // };
+        // console.log(name)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-08-11 23:31:36
+ * @LastEditTime: 2019-08-11 23:31:36
+ * @LastEditors: your name
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>元编程</title>
+</head>
+
+<body>
+    <script>
+        //Symbol.toPrimitive 指向一个方法 转换成原始类型的时候会调用
+        // var yideng = {
+        //     //Symbol.iterator
+        //     [Symbol.toPrimitive]: ((i) => () => ++i)(0)
+        // }
+        // if (yideng == 1 && yideng == 2 && yideng == 3) {
+        //     console.log("执行");
+        // }
+        // function test(i) {
+        //     //开启TCO 尾递归调用优化
+        //     return test(i--, i);
+        //     TCO_ENDABLED = true;
+        // }
+        // test(5);
+
+        //反射 + 代理
+        let laoyuan = {
+            age: 20
+        }
+        const validator = {
+            get(target, key, receiver) {
+                return Reflect.get(target, key, receiver);
+            },
+            set(target, key, value) {
+                if (typeof value != "number") {
+                    throw new Error("年龄必须是数字");
+                }
+            }
+        }
+        const proxy = new Proxy(laoyuan, validator)
+        proxy.age = "京程一灯"
+    </script>
+</body>
+
+</html>

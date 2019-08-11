@@ -1,0 +1,71 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-08-11 23:26:15
+ * @LastEditTime: 2019-08-11 23:27:19
+ * @LastEditors: Please set LastEditors
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原型链</title>
+</head>
+
+<body>
+    <script>
+        // Object.prototype.a = 'a';
+        //Function.prototype.a = 'a1';
+        // function Person() { };
+        // Person.prototype.a = "a2";
+        // var yideng = new Person();
+        // console.log(Person.a);
+        // console.log(yideng.a);
+        // console.log(1..a);
+        //console.log(1.a);
+        // const item = new yideng.__proto__.__proto__.constructor;
+        // console.log(item.constructor );
+
+        // function Car(color){
+        //     this.color = color;
+        // }
+        // Car.prototype.sail = function(){
+        //     console.log(this.color);
+        // }
+        // function BWM(color){
+        //     Car.call(this,color);
+        // }
+        // var __proto = Object.create(Car.prototype);
+        // __proto.constructor = BWM;
+        // BWM.prototype = __proto;
+        // var bwm = new BWM("red");
+        // bwm.sail();
+
+        class Car {
+            constructor(color) {
+                this.color = color;
+            }
+            sail() {
+                console.log(this.color);
+            }
+        }
+        Car.prototype.sail = function(){
+            console.log("重写方法")
+        }
+        class BMW extends Car{
+            constructor(color) {
+                super(color);
+                // super.titile = "测试";
+                this.color = color;
+            }
+        }
+
+        const bwm = new BMW("red");
+        bwm.sail();
+    </script>
+</body>
+
+</html>
